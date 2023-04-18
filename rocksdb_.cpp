@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
-#include <rocksdb/db.h>
+#include "rocksdb/db.h"
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 
 class RocksDBJson {
 public:
-  RocksDB(const std::string& db_path) : db_path_(db_path) {}
+  RocksDBJson(const std::string& db_path) : db_path_(db_path) {}
 
   bool open_db() {
     rocksdb::Options options;
@@ -103,7 +103,7 @@ private:
 
 int main() {
   // Example usage:
-  RocksDBJson db("db");
+  RocksDBJson db("./test/db");
   if (db.open_db()) {
     // Database opened successfully
 
